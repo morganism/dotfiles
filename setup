@@ -1,0 +1,33 @@
+#!/bin/bash
+:<<__DEF__
+Author: morgan@morganism.dev
+Date  : Fri Aug  1 17:41:01 PDT 2025
+__DEF__
+#
+#
+#
+#
+echo "debug $DEBUG"
+sleep 1
+
+THIS_DIR=$(dirname $0)
+source "$THIS_DIR/functions.sh"
+
+tput smcup # save screen contents
+echo "debug $DEBUG"
+
+PACKAGE_LIST=""
+if [[ -n "$@" ]]; then
+    if [[ -f "$@" ]]; then
+        debug "${WHI}Installing: ${BLU} $@${RST}"
+        install_packages_in_file "$@"
+    fi
+fi
+
+debug "Package list is [$PACKAGE_LIST]"
+check_packages "git ssh curl nmap htop"
+debug "Package list is  now [$PACKAGE_LIST]"
+install_packages "$PACKAGE_LIST"
+echo -e "${RST}"
+echo -e "${RST}"
+tput rmcup # restore screen contents
