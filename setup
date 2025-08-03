@@ -10,6 +10,7 @@ __DEF__
 echo "debug $DEBUG"
 sleep 1
 
+REQUIRED_PACKAGES="git curl ssh"
 THIS_DIR=$(dirname $0)
 source "$THIS_DIR/functions.sh"
 
@@ -25,9 +26,18 @@ if [[ -n "$@" ]]; then
 fi
 
 debug "Package list is [$PACKAGE_LIST]"
-check_packages "git ssh curl nmap htop"
+check_packages $REQUIRED_PACKAGES
 debug "Package list is  now [$PACKAGE_LIST]"
 install_packages "$PACKAGE_LIST"
 echo -e "${RST}"
-echo -e "${RST}"
 tput rmcup # restore screen contents
+
+set -e
+sudo apt update && sudo apt install -y wget
+wget -O /tmp/gh.deb https://github.com/cli/cli/releases/download/v2.76.2/gh_2.76.2_linux_amd64.deb
+sudo dpkg -i /tmp/gh.deb
+sudo apt install -f -y
+rm /tmp/gh.deb
+echo -e "${BLU}GitHub CLI installed! Version: ${YEL}$(gh --version)${RST}"
+echo -e "${BLU}Authenticate now...${RST}"
+gh auth login

@@ -9,14 +9,14 @@ __DEF__
 #
 
 set_colours() {
-    BLA=$(eval tput setaf 0) # black
-    RED=$(tput setaf 1) # red
-    GRE=$(tput setaf 2) # green
-    YEL=$(tput setaf 3) # yellow
-    BLU=$(tput setaf 4) # blue
-    MAG=$(tput setaf 5) # magenta
-    CYA=$(tput setaf 6) # cyan
-    WHI=$(tput setaf 7) # white
+     BLA=$(tput setaf 0) # black
+     RED=$(tput setaf 1) # red
+     GRE=$(tput setaf 2) # green
+     YEL=$(tput setaf 3) # yellow
+     BLU=$(tput setaf 4) # blue
+     MAG=$(tput setaf 5) # magenta
+     CYA=$(tput setaf 6) # cyan
+     WHI=$(tput setaf 7) # white
     _BLA=$(tput setab 0) # black
     _RED=$(tput setab 1) # red
     _GRE=$(tput setab 2) # green
@@ -25,11 +25,11 @@ set_colours() {
     _MAG=$(tput setab 5) # magenta
     _CYA=$(tput setab 6) # cyan
     _WHI=$(tput setab 7) # white
-    RST=$(tput sgr0)     # reset
-    BOL=$(tput bold)     # bold
-    REV=$(tput rev)       #bold
-    SMSO=$(tput smso)      #reverse
-    RMSO=$(tput rmso)  
+     RST=$(tput sgr0   ) # reset
+     BOL=$(tput bold   ) # bold
+     REV=$(tput rev    ) # reverse
+    SMSO=$(tput smso   ) # reverse
+    RMSO=$(tput rmso   ) # reverse  
 }
 
 log() {
@@ -55,7 +55,7 @@ check_packages() {
     do
         COLONS=$(echo $p | grep -c ":")
         if [[ ! "$COLONS" = "1" ]]; then
-            debug "${RED}No delimiter [${SMSO}${BLA}${_WHI} : ${RMSO}] ${BLU}package$ [${SMSO}${BLA}${_WHI} ${p} ${RMSO}] . .. ... ${GRE}fixing." >&2
+            debug "${RED}No delimiter [${SMSO}${BLA}${_WHI} : ${RMSO}] ${BLU}package [${SMSO}${BLA}${_WHI} ${p} ${RMSO}] . .. ... ${GRE}fixing.">&2
             PKG="$p:$p" 
         else
             PKG="$p"
