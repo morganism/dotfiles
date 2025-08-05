@@ -3,12 +3,11 @@
 Author: morgan@morganism.dev
 Date  : Fri Aug  1 17:41:01 PDT 2025
 __DEF__
+# https://github.com/morganism/dotfiles.git
 #
 #
 #
-#
-echo "debug $DEBUG"
-sleep 1
+[[ -n "$DEBUG" ]] && echo "debug: $DEBUG"
 
 REQUIRED_PACKAGES="git curl ssh"
 THIS_DIR=$(dirname $0)
@@ -32,6 +31,10 @@ install_packages "$PACKAGE_LIST"
 echo -e "${RST}"
 tput rmcup # restore screen contents
 
+echo -e "${BLU}Git config for name and email ...${RST}"
+git config --global user.name "morgan sziraki"
+git config --global user.email "morgan.sziraki@gmail.com"
+
 set -e
 sudo apt update && sudo apt install -y wget
 wget -O /tmp/gh.deb https://github.com/cli/cli/releases/download/v2.76.2/gh_2.76.2_linux_amd64.deb
@@ -39,5 +42,8 @@ sudo dpkg -i /tmp/gh.deb
 sudo apt install -f -y
 rm /tmp/gh.deb
 echo -e "${BLU}GitHub CLI installed! Version: ${YEL}$(gh --version)${RST}"
+
+echo "Create a Personal Access Token ... "
+
 echo -e "${BLU}Authenticate now...${RST}"
 gh auth login
