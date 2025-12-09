@@ -1,0 +1,8 @@
+[user]
+	name = morgan
+	email = morgan.sziraki@gmail.com
+	name = morgan
+[init]
+	defaultBranch = master
+[diff]
+	submodule = log

@@ -1,0 +1,12 @@
+SSOConfig:
+    Default:
+        SSORegion: eu-west-2
+        StartUrl: https://morganism.awsapps.com/start
+ConsoleDuration: 720
+CacheRefresh: 168
+UrlAction: open
+LogLevel: error
+HistoryLimit: 10
+HistoryMinutes: 1440
+ProfileFormat: "{{ .AccountIdPad }}:{{ .RoleName }}"
+FullTextSearch: true
