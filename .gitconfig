@@ -6,3 +6,5 @@
 	defaultBranch = master
 [diff]
 	submodule = log
+[http]
+	postBuffer = 524288000

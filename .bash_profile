@@ -1,3 +1,13 @@
+dircolors() {
+  # ~/.dircolors/themefile
+  eval $(gdircolors ~/.dircolors/dircolors.256dark)
+  
+  # Aliases
+  alias ls='gls --color=auto'
+  alias ll='ls -al'
+}
+
+
 ## Amazon Q pre block. Keep at the top of this file.
 #[[ -f "${HOME}/Library/Application Support/amazon-q/shell/bash_profile.pre.bash" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/bash_profile.pre.bash"
 ## Amazon Q pre block. Keep at the top of this file.
@@ -5,8 +15,9 @@
 source /Users/morgan/.javarc
 
 set -o vi
-. ~/.my_aliases
-. ~/.aws_aliases
+source ~/.my_aliases
+source ~/.my_functions
+source ~/.shelper.functions
 
 
 
@@ -138,9 +149,6 @@ if command -v ngrok &>/dev/null; then
   eval "$(ngrok completion)"
 fi
 
-source ~/.my_functions
-source ~/.my_aliaseS
-
 
 # Amazon Q post block. Keep at the bottom of this file.
 #[[ -f "${HOME}/Library/Application Support/amazon-q/shell/bash_profile.post.bash" ]] && builtin source "${HOME}/Library/Application Support/amazon-Q/SHEll/bash_profile.post.bash"
@@ -181,7 +189,7 @@ aws_sso_login () {
   export AWS_PROFILE=$profile
   export AWS_DEFAULT_PROFILE=$profile
   echo "aws sso login --profile \"$profile\""
-  aws sso login --profile "$profile"
+  aws "${AWS_SSO_DEBUG:-''}" sso login --profile "$profile"
 }
 
 alias aws-scalpel-login='aws_sso_login scalpel-org-admin'
@@ -189,6 +197,8 @@ alias aws-amazon-login='aws_sso_login amazon-org-admin'
 alias aws-personal-login='aws_sso_login personal'
 alias aws-scalpel-old-prod-admin='aws_sso_login scalpel-old-prod-admin'
 alias aws-scalpel-dev-admin='aws_sso_login scalpel-dev-admin'
+alias aws-scalpel-test-admin='aws_sso_login scalpel-test-admin'
+alias aws-scalpel-prod-admin='aws_sso_login scalpel-prod-admin'
 alias aws-scalpel-ma-prod-admin='aws_sso_login scalpel-ma-prod-admin'
 alias aws-scalpel-old-prod-readonly='aws_sso_login scalpel-old-prod-readonly'
 alias aws-scalpel-ma-prod-readonly='aws_sso_login scalpel-ma-prod-readonly'
@@ -203,3 +213,5 @@ CLAUDEMOD_OTHERS="2025-01-24"
 CLAUDEMOD_OPUS45="2025-11-24"
 BETA_FEATURE_NAME="computer-use-2025-11-24"
 ANTHROPIC_BETA="anthropic-beta: $BETA_FEATURE_NAME"
+
+dircolors # call the function defined above
