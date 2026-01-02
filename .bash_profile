@@ -15,6 +15,7 @@ dircolors() {
 source /Users/morgan/.javarc
 
 set -o vi
+source ~/.bin/.functions
 source ~/.my_aliases
 source ~/.my_functions
 source ~/.shelper.functions
@@ -27,7 +28,6 @@ source ~/.shelper.functions
 eval "$(rbenv init - --no-rehash bash)"
 
 
-source $HOME/.bin/.functions
 
 export CFLAGS="-arch x86_64"
 export LDFLAGS="-arch x86_64"
@@ -154,7 +154,7 @@ fi
 #[[ -f "${HOME}/Library/Application Support/amazon-q/shell/bash_profile.post.bash" ]] && builtin source "${HOME}/Library/Application Support/amazon-Q/SHEll/bash_profile.post.bash"
 
 export PATH="/usr/local/Cellar/ruby/3.4.7/bin/:$HOME/.bin:$HOME/bin:/usr/local/bin:$PATH"
-source /Users/morgan/src/erichs/composure/composure.sh
+#source /Users/morgan/src/erichs/composure/composure.sh
 export PS1='\[\]\H:\W \u\$ \[\]\[\]'
 export PATH="/usr/local/sbin:$PATH"
 
@@ -203,7 +203,7 @@ alias aws-scalpel-ma-prod-admin='aws_sso_login scalpel-ma-prod-admin'
 alias aws-scalpel-old-prod-readonly='aws_sso_login scalpel-old-prod-readonly'
 alias aws-scalpel-ma-prod-readonly='aws_sso_login scalpel-ma-prod-readonly'
 
-complete -C /usr/local/bin/terraform terraform
+#complete -C /usr/local/bin/terraform terraform
 
 
 #claude
@@ -214,4 +214,4 @@ CLAUDEMOD_OPUS45="2025-11-24"
 BETA_FEATURE_NAME="computer-use-2025-11-24"
 ANTHROPIC_BETA="anthropic-beta: $BETA_FEATURE_NAME"
 
-dircolors # call the function defined above
+#dircolors # call the function defined above
