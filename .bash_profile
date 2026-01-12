@@ -7,6 +7,9 @@ dircolors() {
   alias ll='ls -al'
 }
 
+export TERM="xterm-256color"
+export COLORTERM=truecolor
+
 
 ## Amazon Q pre block. Keep at the top of this file.
 #[[ -f "${HOME}/Library/Application Support/amazon-q/shell/bash_profile.pre.bash" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/bash_profile.pre.bash"
@@ -215,3 +218,8 @@ BETA_FEATURE_NAME="computer-use-2025-11-24"
 ANTHROPIC_BETA="anthropic-beta: $BETA_FEATURE_NAME"
 
 #dircolors # call the function defined above
+
+export XDG_CONFIG_HOME="~/.config"
+
+export PATH="/usr/local/Homebrew/Library/Homebrew/vendor/portable-ruby/3.4.7/include/ruby-3.4.7/ruby/bin:/usr/local/bin:/Library/Frameworks/Python.framework/Versions/3.14/bin:/Users/morgan/.local/bin:/usr/local/sbin:/usr/local/Cellar/ruby/3.4.7/bin/:/Users/morgan/.bin:/Users/morgan/bin:/usr/local/bin:/Users/morgan/.rbenv/shims:/usr/local/opt/openjdk@11/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/opt/X11/bin:/Library/Apple/usr/bin:/usr/local/MacGPG2/bin:/usr/local/go/bin:/Users/morgan/.vimpkg/bin"
+
